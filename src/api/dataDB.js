@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const API_URL = import.meta.env.VITE_API_URL || 'https://eduflix-api.onrender.com'
+
 const dataDB = axios.create({
-  baseURL: 'https://eduflix-api.onrender.com'
+  baseURL: API_URL
 })
 
 // Endpoints originales
