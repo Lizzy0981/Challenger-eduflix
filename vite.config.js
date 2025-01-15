@@ -27,13 +27,21 @@ export default defineConfig({
     minify: 'terser',
     chunkSizeWarningLimit: 1600,
     rollupOptions: {
+      external: [], 
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return 'vendor'
-          }
-        }
+        manualChunks: 
+        format: 'es', 
+      },
+      
+      resolveOptions: {
+        moduleDirectories: ['node_modules', 'src']
       }
     }
+  },
+  esbuild: {
+    jsxInject: `import React from 'react'` 
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom'] 
   }
 })
