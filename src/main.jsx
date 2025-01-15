@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { VideosProvider } from './Context/Context.jsx'
-import { NotificationProvider } from './components/common/NotificationSystem'
+import { NotificationSystem } from './components/NotificationSystem.jsx'  // Corregida la ruta
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import theme from './theme'
@@ -13,9 +13,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <VideosProvider>
-        <NotificationProvider>
+        <NotificationSystem>
           <App />
-        </NotificationProvider>
+        </NotificationSystem>
       </VideosProvider>
     </ThemeProvider>
   </React.StrictMode>
