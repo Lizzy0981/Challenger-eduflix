@@ -1,4 +1,4 @@
-// src/components/common/index.js
+
 import Banner from './Banner/Banner'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
