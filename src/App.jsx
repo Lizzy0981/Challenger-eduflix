@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { GlobalStyle } from './Global'
 import { Toaster } from 'react-hot-toast'
-import { NotificationProvider } from './components/common/NotificationSystem'
+import { NotificationProvider } from '@components/common/NotificationSystem'
 import DefaultPage from './components/pages/DefaultPage/DefaultPage'
 import Home from './components/pages/Home/Home'
 import FormVideoPages from './components/pages/FormPages/FormVideoPages'
