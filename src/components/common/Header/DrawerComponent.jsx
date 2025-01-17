@@ -24,7 +24,7 @@ import VideoLibraryIcon from '@mui/icons-material/VideoLibrary'
 import SettingsIcon from '@mui/icons-material/Settings'
 import HelpIcon from '@mui/icons-material/Help'
 import NotificationsIcon from '@mui/icons-material/Notifications'
-import { useNotifications } from '../NotificationSystem'
+import { useNotifications } from '@components/common/NotificationSystem'
 import { animations } from '../UI/animations'
 
 const DrawerBox = styled(Drawer)(({ theme }) => ({
