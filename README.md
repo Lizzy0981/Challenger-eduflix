@@ -103,7 +103,6 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 ## Créditos
 
 - Diseño e implementación: Elizabeth Diaz Familia
-- Basado en el proyecto original de: Stefania Veronica Bruera
 - Iconos: Material Icons
 - Fuentes: Google Fonts
 
