@@ -21,7 +21,7 @@ import {
 import { 
   generatePDF, 
   generateRecommendations 
-} from '../services/libraryServices'
+} from '../api/services/libraryServices'
 
 export const VideosContext = createContext()
 
