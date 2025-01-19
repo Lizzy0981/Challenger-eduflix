@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import authService from '../services/authService'
+import authService from '../components/auth-service'
 import { toast } from 'react-hot-toast'
 
 const AuthContext = createContext(null)
