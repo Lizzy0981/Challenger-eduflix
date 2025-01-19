@@ -17,22 +17,29 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.2",
     "@mui/styled-engine-sc": "^5.12.0",
+    "aws-sdk": "^2.1692.0",
     "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
     "formik": "^2.2.9",
+    "jsonwebtoken": "^9.0.2",
     "jspdf": "^2.5.1",
+    "multer": "^1.4.5-lts.1",
+    "multer-s3": "^3.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-player": "^2.12.0",
     "react-router-dom": "^6.11.0",
+    "socket.io": "^4.8.1",
     "styled-components": "^5.3.10",
-    "yup": "^1.1.1"
+    "yup": "^1.1.1",
+    "vite": "^4.3.2",
+    "@vitejs/plugin-react-swc": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react-swc": "^3.0.0",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.0.0",
@@ -41,7 +48,6 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.3.4",
-    "vite": "^4.3.2"
+    "eslint-plugin-react-refresh": "^0.3.4"
   }
 }
