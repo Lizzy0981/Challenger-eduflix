@@ -1,6 +1,6 @@
 import Category from '../models/Category'
 import Video from '../models/Video'
-import { createError } from '../utils/errorHandler'
+import { createError } from '../middleware/errorHandler'
 import { validateCategoryData } from '../utils/validators'
 
 export const getCategories = async (req, res, next) => {
