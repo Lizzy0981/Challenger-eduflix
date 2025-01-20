@@ -43,7 +43,9 @@ const FiltersContainer = styled(Box)(({ theme }) => ({
   borderRadius: '12px',
   background: 'rgba(255, 255, 255, 0.05)',
   border: '1px solid rgba(255, 255, 255, 0.1)',
-  ${animations.slideDown}
+  '&': {
+    [animations.fadeIn.split(';')[0]]: ''
+  }
 }))
 
 const FilterGroup = styled(Box)(({ theme }) => ({
