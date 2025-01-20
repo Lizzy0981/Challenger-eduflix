@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from 'react'
+import React, { useState, useEffect, createContext, useContext } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import authService from '@/services/authService'
 import { toast } from 'react-hot-toast'
@@ -165,11 +165,9 @@ export function AuthProvider({ children }) {
     clearError
   }
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  )
+  return React.createElement(AuthContext.Provider, {
+    value: value
+  }, children)
 }
 
 export function useAuth() {
