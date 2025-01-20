@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import User from '../models/User'
 import { sendVerificationEmail, sendPasswordResetEmail } from '../utils/emailService'
-import { createError } from '../utils/errorHandler'
+import { createError } from '../middleware/errorHandler'
 
 export const register = async (req, res, next) => {
   try {
