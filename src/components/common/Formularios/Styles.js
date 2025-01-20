@@ -25,7 +25,7 @@ import {
   colorPrimary,
   colorWec,
   colorWhite
-} from '../../../UI/variablesStyle'
+} from '../components/UI/variablesStyle'
 
 const Form = styled('form')(({ theme }) => ({
   display: 'flex',
