@@ -1,15 +1,15 @@
 // src/components/common/index.js
-import Banner from '../../../common/Banner/Banner'
-import Header from '../../../common/Header/Header'
-import Footer from '../../../common/Footer/Footer'
-import Boton from '../../../common/Button/Boton'
-import Carrusel from '../../../common/Carrusel/Carrusel'
-import FormVideo from '../../../common/Formularios/FormVideo'
-import FormCategoria from '../../../common/Formularios/FormCategoria'
-import DrawerComponent from '../../../common/Header/DrawerComponent'
-import VideoCard from '../../../common/Carrusel/VideoCard'
-import FormSearch from '../../../common/Formularios/FormSearch'
-import { NotificationProvider, useNotifications } from '../../../common/NotificationSystem/NotificationSystem'
+import Banner from './Banner/Banner'
+import Header from './Header/Header'
+import Footer from './Footer/Footer'
+import Boton from './Button/Boton'
+import Carrusel from './Carrusel/Carrusel'
+import FormVideo from './Formularios/FormVideo'
+import FormCategoria from './Formularios/FormCategoria'
+import DrawerComponent from './Header/DrawerComponent'
+import VideoCard from './Carrusel/VideoCard'
+import FormSearch from './Formularios/FormSearch'
+import { NotificationProvider, useNotifications } from './NotificationSystem/NotificationSystem'
 
 export {
   Banner,
