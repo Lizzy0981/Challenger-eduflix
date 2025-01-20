@@ -1,10 +1,10 @@
 import User from '../models/User'
 import Progress from '../models/Progress'
-import { createError } from '../utils/errorHandler'
+import { createError } from '../middleware/errorHandler'
 import { generatePDF } from '../utils/pdfGenerator'
 import { uploadToS3, deleteFromS3 } from '../utils/s3'
 import { cache } from '../utils/cache'
-import { notificationService } from './notificationService'
+import { notificationService } from '../services/notificationService'
 
 class UserService {
   async getUserProfile(userId) {
