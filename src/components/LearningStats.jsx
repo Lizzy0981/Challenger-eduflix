@@ -18,7 +18,9 @@ import CategoryIcon from '@mui/icons-material/Category'
 
 const StatsContainer = styled(Box)(({ theme }) => ({
   padding: '2rem',
-  ${animations.fadeIn}
+  '&': {
+    [animations.fadeIn.split(';')[0]]: ''
+  }
 }))
 
 const StatCard = styled(Paper)(({ theme }) => ({
@@ -33,7 +35,9 @@ const StatCard = styled(Paper)(({ theme }) => ({
   '&:hover': {
     transform: 'translateY(-5px)'
   },
-  ${animations.slideUp}
+  '&': {
+    [animations.slideUp.split(';')[0]]: ''
+  }
 }))
 
 const StatIcon = styled(Box)(({ theme }) => ({
