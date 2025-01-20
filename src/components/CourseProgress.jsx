@@ -17,7 +17,9 @@ const ProgressContainer = styled(Box)(({ theme }) => ({
   padding: '0.5rem',
   borderRadius: '8px',
   background: 'rgba(255, 255, 255, 0.1)',
-  ${animations.fadeIn}
+  '&': {
+    [animations.fadeIn.split(';')[0]]: ''
+  }
 }))
 
 const ProgressBar = styled(LinearProgress)(({ theme }) => ({
