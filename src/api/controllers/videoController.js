@@ -1,7 +1,7 @@
 import Video from '../models/Video'
 import User from '../models/User'
 import Category from '../models/Category'
-import { createError } from '../utils/errorHandler'
+import { createError } from '../middleware/errorHandler'
 import { validateVideoData } from '../utils/validators'
 
 export const getVideos = async (req, res, next) => {
