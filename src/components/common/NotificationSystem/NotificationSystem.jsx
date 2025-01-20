@@ -15,7 +15,7 @@ import {
   Divider
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorPrimary, colorWhite, colorSuccess, colorWarning } from '@components/UI/variablesStyle'
+import { colorPrimary, colorWhite, colorSuccess, colorWarning } from '../../UI/variablesStyle'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import CloseIcon from '@mui/icons-material/Close'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -23,7 +23,7 @@ import NewReleasesIcon from '@mui/icons-material/NewReleases'
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep'
 import DoneAllIcon from '@mui/icons-material/DoneAll'
-import { slideIn } from '@components/UI/animations'
+import { animations } from '../../UI/animations'
 
 const NOTIFICATION_TYPES = {
   ACHIEVEMENT: 'achievement',
