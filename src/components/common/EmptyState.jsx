@@ -2,7 +2,7 @@ import { Box, Typography, Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { styled } from '@mui/material/styles'
-import { colorWhite, colorPrimary } from '../../UI/variablesStyle'
+import { colorWhite, colorPrimary } from '../UI/variablesStyle' 
 
 const EmptyContainer = styled(Box)(({ theme }) => ({
   textAlign: 'center',
