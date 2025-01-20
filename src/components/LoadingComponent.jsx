@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { styled, keyframes } from '@mui/material/styles'
-import { colorPrimary } from '../../UI/variablesStyle'
+import { colorPrimary } from '../components/UI/variablesStyle'  
 import SchoolIcon from '@mui/icons-material/School'
 
 const pulse = keyframes`
