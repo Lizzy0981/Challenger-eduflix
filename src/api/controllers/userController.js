@@ -1,7 +1,7 @@
 import User from '../models/User'
 import Progress from '../models/Progress'
-import { createError } from '../utils/errorHandler'
-import { saveCertificate } from '../services/certificateService'
+import { createError } from '../middleware/errorHandler'
+import { saveCertificate } from '../components/certificate-service'
 
 export const getUserProfile = async (req, res, next) => {
   try {
