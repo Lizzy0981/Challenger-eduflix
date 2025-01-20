@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import config from '../config/config'
-import { createError } from '../utils/errorHandler'
+import { createError } from '../middleware/errorHandler'
 import User from '../models/User'
 
 // Verificar token de autenticación
