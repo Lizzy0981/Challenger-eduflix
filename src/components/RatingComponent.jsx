@@ -31,7 +31,9 @@ const RatingPopup = styled(Box)(({ theme }) => ({
   background: 'rgba(0, 0, 0, 0.8)',
   padding: '4px 8px',
   borderRadius: '4px',
-  ${animations.fadeIn}
+  '&': {
+    [animations.fadeIn.split(';')[0]]: ''
+  }
 }))
 
 function RatingComponent({ initialValue = 0, totalRatings = 0, onRatingChange }) {
