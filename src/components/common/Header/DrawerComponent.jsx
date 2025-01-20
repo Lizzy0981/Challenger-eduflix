@@ -13,7 +13,7 @@ import {
   Badge
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorPrimary, colorWhite } from '../../UI/variablesStyle'
+import { colorPrimary, colorWhite } from '../../../components/UI/variablesStyle'
 import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
@@ -25,7 +25,7 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import HelpIcon from '@mui/icons-material/Help'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import { useNotifications } from '@components/common/NotificationSystem'
-import { animations } from '../../../UI/animations'
+import { animations } from '../../../components/UI/animations'
 
 const DrawerBox = styled(Drawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
@@ -136,7 +136,7 @@ function DrawerComponent() {
           </Box>
         </UserInfo>
 
-        <List sx={{ ${animations.slideIn} }}>
+        <List sx={{ '&': { [animations.slideIn.split(';')[0]]: '' } }}>
           {menuItems.map((item) => (
             <ListItemStyled
               key={item.text}
