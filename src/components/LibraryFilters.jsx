@@ -17,13 +17,13 @@ import {
   Drawer
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorPrimary, colorWhite, colorGrayLight } from '../../UI/variablesStyle'
+import { colorPrimary, colorWhite, colorGrayLight } from '../components/UI/variablesStyle'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import SortIcon from '@mui/icons-material/Sort'
 import CloseIcon from '@mui/icons-material/Close'
 import RestartAltIcon from '@mui/icons-material/RestartAlt'
-import { animations } from '../../../UI/animations'
-import { VideosContext } from '../../../Context/Context'
+import { animations } from '../components/UI/animations'
+import { VideosContext } from '../Context/Context'
 
 const FILTER_TYPES = {
   NIVEL: 'nivel',
