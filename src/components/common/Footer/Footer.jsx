@@ -10,20 +10,22 @@ import {
   Divider
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorWhite, colorPrimary } from '../../UI/variablesStyle'
+import { colorWhite, colorPrimary } from '../components/UI/variablesStyle'
 import { Link } from 'react-router-dom'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import FacebookIcon from '@mui/icons-material/Facebook'
-import { animations } from '../../UI/animations'
+import { animations } from '../components/UI/animations'
 
 const FooterBox = styled(Box)(({ theme }) => ({
   background: 'rgba(0, 0, 0, 0.9)',
   color: colorWhite,
   padding: '4rem 0 2rem 0',
   marginTop: 'auto',
-  ${animations.fadeIn}
+  '&': {
+    [animations.fadeIn.split(';')[0]]: ''
+  }
 }))
 
 const FooterContainer = styled(Container)(({ theme }) => ({
