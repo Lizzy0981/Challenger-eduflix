@@ -1,6 +1,6 @@
 import Video from '../models/Video'
 import Progress from '../models/Progress'
-import { createError } from '../utils/errorHandler'
+import { createError } from '../middleware/errorHandler'
 import { validateVideoURL, getVideoDuration } from '../utils/validators'
 import { notificationService } from './notificationService'
 
