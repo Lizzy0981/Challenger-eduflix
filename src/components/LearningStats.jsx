@@ -1,5 +1,5 @@
 import { useContext, useMemo } from 'react'
-import { VideosContext } from '../../../Context/Context'
+import { VideosContext } from '../Context/Context'
 import { 
   Box, 
   Paper, 
@@ -9,8 +9,8 @@ import {
   LinearProgress
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorPrimary, colorWhite } from '../../UI/variablesStyle'
-import { animations } from '../UI/animations'
+import { colorPrimary, colorWhite } from '../components/UI/variablesStyle'
+import { animations } from '../components/UI/animations'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp'
