@@ -17,12 +17,12 @@ import {
   Drawer
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorGrayMedium, colorPrimary, colorWhite } from '../../../UI/variablesStyle'
+import { colorGrayMedium, colorPrimary, colorWhite } from '../components/UI/variablesStyle'
 import SearchIcon from '@mui/icons-material/Search'
 import TuneIcon from '@mui/icons-material/Tune'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import CloseIcon from '@mui/icons-material/Close'
-import { animations } from '../../../UI/animations'
+import { animations } from '../components/UI/animations'
 
 const FormMain = styled('form')(({ theme }) => ({
   display: 'flex',
