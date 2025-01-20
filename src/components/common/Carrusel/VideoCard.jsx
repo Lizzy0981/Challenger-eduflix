@@ -16,7 +16,7 @@ import {
   Button
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorWhite } from '../../UI/variablesStyle'
+import { colorWhite } from '../../../components/UI/variablesStyle'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import PersonIcon from '@mui/icons-material/Person'
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt'
@@ -25,10 +25,10 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import ShareIcon from '@mui/icons-material/Share'
 import { animations } from '../../../components/UI/animations'
-import RatingComponent from '../../components/RatingComponent'
-import CourseProgress from '../../components/CourseProgress'
-import { useAuth } from '../../Context/useAuth'
-import { useGamification } from '../../components/useGamification'
+import RatingComponent from '../../../components/RatingComponent'
+import CourseProgress from '../../../components/CourseProgress'
+import { useAuth } from '../../../Context/useAuth'
+import { useGamification } from '../../../components/useGamification'
 
 const VideoCardImg = styled(CardMedia)(({ theme }) => ({
   width: '100%',
