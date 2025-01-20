@@ -22,7 +22,7 @@ import FilterListIcon from '@mui/icons-material/FilterList'
 import SortIcon from '@mui/icons-material/Sort'
 import CloseIcon from '@mui/icons-material/Close'
 import RestartAltIcon from '@mui/icons-material/RestartAlt'
-import { animations } from '../../../components/UI/animations'
+import { animations } from '../../../UI/animations'
 import { VideosContext } from '../../../Context/Context'
 
 const FILTER_TYPES = {
