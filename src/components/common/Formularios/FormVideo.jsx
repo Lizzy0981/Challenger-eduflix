@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 import { VideosContext } from '../../../Context/Context'
 import { TextField, MenuItem, TableRow, TableBody, Paper, Button } from '@mui/material'
-import Boton from '../../../common/Button/Boton'
+import Boton from '../Button/Boton'  // Ajustada la ruta
 import { useFormik } from 'formik'
 import { getVideo } from '../../../api/dataDB'
 import { toast } from 'react-hot-toast'
