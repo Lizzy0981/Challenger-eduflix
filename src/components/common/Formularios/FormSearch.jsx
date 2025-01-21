@@ -5,7 +5,6 @@ import {
   TextField, 
   Typography,
   IconButton,
-  Collapse,
   Button,
   Slider,
   FormControl,
@@ -17,12 +16,11 @@ import {
   Drawer
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorGrayMedium, colorPrimary, colorWhite } from '../components/UI/variablesStyle'
+import { colorGrayMedium, colorPrimary, colorWhite } from '../../../components/UI/variablesStyle'
 import SearchIcon from '@mui/icons-material/Search'
-import TuneIcon from '@mui/icons-material/Tune'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import CloseIcon from '@mui/icons-material/Close'
-import { animations } from '../components/UI/animations'
+import { animations } from '../../../components/UI/animations'
 
 const FormMain = styled('form')(({ theme }) => ({
   display: 'flex',
@@ -43,7 +41,9 @@ const FormMain = styled('form')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     width: '90%'
   },
-  ${animations.slideUp}
+  '&': {
+    [animations.slideUp.split(';')[0]]: ''
+  }
 }))
 
 const TituloSearch = styled(Typography)(({ theme }) => ({
@@ -51,7 +51,9 @@ const TituloSearch = styled(Typography)(({ theme }) => ({
   marginBottom: '1rem',
   color: colorPrimary,
   fontWeight: 'bold',
-  ${animations.fadeIn}
+  '&': {
+    [animations.fadeIn.split(';')[0]]: ''
+  }
 }))
 
 const SearchContainer = styled(Box)(({ theme }) => ({
@@ -82,242 +84,205 @@ const FilterChip = styled(Chip)(({ theme, selected }) => ({
   }
 }))
 
+const FilterDrawer = styled(Drawer)(({ theme }) => ({
+  '& .MuiDrawer-paper': {
+    width: '300px',
+    padding: '2rem',
+    background: colorGrayMedium
+  }
+}))
+
+const FilterSection = styled(Box)(({ theme }) => ({
+  marginBottom: '2rem'
+}))
+
+const FilterTitle = styled(Typography)(({ theme }) => ({
+  color: colorPrimary,
+  fontWeight: 'bold',
+  marginBottom: '1rem'
+}))
+
 function FormSearch() {
-  const { setSearch } = useContext(VideosContext)
+  const { setSearch, categorias } = useContext(VideosContext)
   const [query, setQuery] = useState('')
   const [showFilters, setShowFilters] = useState(false)
-  const [selectedFilters, setSelectedFilters] = useState([])
+  const [filters, setFilters] = useState({
+    categoria: '',
+    nivel: '',
+    duracion: [0, 120],
+    instructor: ''
+  })
+  const [activeFilters, setActiveFilters] = useState([])
 
-  const filters = [
-    { label: 'Principiante', category: 'nivel' },
-    { label: 'Intermedio', category: 'nivel' },
-    { label: 'Avanzado', category: 'nivel' },
-    { label: '< 30 min', category: 'duracion' },
-    { label: '30-60 min', category: 'duracion' },
-    { label: '> 60 min', category: 'duracion' }
-  ]
+  const niveles = ['Principiante', 'Intermedio', 'Avanzado']
+  const instructores = ['Carlos Ramírez', 'Ana Martínez', 'Pablo Rodríguez']
 
   const handleSearch = (e) => {
     setQuery(e.target.value)
   }
 
+  const handleFilterChange = (name, value) => {
+    setFilters(prev => ({
+      ...prev,
+      [name]: value
+    }))
+    updateActiveFilters(name, value)
+  }
+
+  const updateActiveFilters = (name, value) => {
+    setActiveFilters(prev => {
+      const newFilters = prev.filter(f => f.name !== name)
+      if (value && value.length !== 0) {
+        newFilters.push({ name, value })
+      }
+      return newFilters
+    })
+  }
+
+  const removeFilter = (filterName) => {
+    setFilters(prev => ({
+      ...prev,
+      [filterName]: filterName === 'duracion' ? [0, 120] : ''
+    }))
+    setActiveFilters(prev => prev.filter(f => f.name !== filterName))
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSearch(query)
+    const searchParams = {
+      query,
+      filters
+    }
+    setSearch(searchParams)
   }
 
-  const toggleFilter = (filter) => {
-    setSelectedFilters(prev => 
-      prev.includes(filter) 
-        ? prev.filter(f => f !== filter)
-        : [...prev, filter]
-    )
+  const formatDuracion = (value) => {
+    return `${value} min`
   }
 
-  const clearFilters = () => {
-    setSelectedFilters([])
-  }
+  return (
+    <FormMain onSubmit={handleSubmit}>
+      <TituloSearch variant="h4" component="h2">
+        Encuentra tu próximo curso
+      </TituloSearch>
+      
+      <SearchContainer>
+        <TextField
+          fullWidth
+          placeholder="Buscar cursos..."
+          value={query}
+          onChange={handleSearch}
+          InputProps={{
+            startAdornment: <SearchIcon color="action" sx={{ mr: 1 }} />
+          }}
+        />
+        <IconButton onClick={() => setShowFilters(true)}>
+          <FilterListIcon />
+        </IconButton>
+      </SearchContainer>
 
-  const FilterDrawer = styled(Drawer)(({ theme }) => ({
-    '& .MuiDrawer-paper': {
-      width: '300px',
-      padding: '2rem',
-      background: colorGrayMedium
-    }
-  }))
-  
-  const FilterSection = styled(Box)(({ theme }) => ({
-    marginBottom: '2rem'
-  }))
-  
-  const FilterTitle = styled(Typography)(({ theme }) => ({
-    color: colorPrimary,
-    fontWeight: 'bold',
-    marginBottom: '1rem'
-  }))
-  
-  function FormSearch() {
-    const { setSearch, categorias } = useContext(VideosContext)
-    const [query, setQuery] = useState('')
-    const [showFilters, setShowFilters] = useState(false)
-    const [filters, setFilters] = useState({
-      categoria: '',
-      nivel: '',
-      duracion: [0, 120],
-      instructor: ''
-    })
-    const [activeFilters, setActiveFilters] = useState([])
-  
-    const niveles = ['Principiante', 'Intermedio', 'Avanzado']
-    const instructores = ['Carlos Ramírez', 'Ana Martínez', 'Pablo Rodríguez'] // Este array vendría de tu base de datos
-  
-    const handleSearch = (e) => {
-      setQuery(e.target.value)
-    }
-  
-    const handleFilterChange = (name, value) => {
-      setFilters(prev => ({
-        ...prev,
-        [name]: value
-      }))
-      updateActiveFilters(name, value)
-    }
-  
-    const updateActiveFilters = (name, value) => {
-      setActiveFilters(prev => {
-        const newFilters = prev.filter(f => f.name !== name)
-        if (value && value.length !== 0) {
-          newFilters.push({ name, value })
-        }
-        return newFilters
-      })
-    }
-  
-    const removeFilter = (filterName) => {
-      setFilters(prev => ({
-        ...prev,
-        [filterName]: filterName === 'duracion' ? [0, 120] : ''
-      }))
-      setActiveFilters(prev => prev.filter(f => f.name !== filterName))
-    }
-  
-    const handleSubmit = (e) => {
-      e.preventDefault()
-      // Aquí implementarías la lógica para filtrar considerando todos los criterios
-      const searchParams = {
-        query,
-        filters
-      }
-      setSearch(searchParams)
-    }
-  
-    const formatDuracion = (value) => {
-      return `${value} min`
-    }
-  
-    return (
-      <FormMain onSubmit={handleSubmit}>
-        <TituloSearch variant='h4' component='h2'>
-          Encuentra tu próximo curso
-        </TituloSearch>
-        
-        <SearchContainer>
-          <TextField
-            fullWidth
-            placeholder="Buscar cursos..."
-            value={query}
-            onChange={handleSearch}
-            InputProps={{
-              startAdornment: <SearchIcon color="action" sx={{ mr: 1 }} />
-            }}
-          />
-          <IconButton onClick={() => setShowFilters(true)}>
-            <FilterListIcon />
-          </IconButton>
-        </SearchContainer>
-  
-        {activeFilters.length > 0 && (
-          <Stack direction="row" spacing={1} sx={{ mt: 2, flexWrap: 'wrap', gap: 1 }}>
-            {activeFilters.map((filter) => (
-              <Chip
-                key={filter.name}
-                label={`${filter.name}: ${filter.value}`}
-                onDelete={() => removeFilter(filter.name)}
-                color="primary"
-                variant="outlined"
-              />
-            ))}
-          </Stack>
-        )}
-  
-        <FilterDrawer
-          anchor="right"
-          open={showFilters}
-          onClose={() => setShowFilters(false)}
-        >
-          <FilterSection>
-            <FilterTitle variant="h6">Filtros de búsqueda</FilterTitle>
-            
-            <FormControl fullWidth sx={{ mb: 3 }}>
-              <InputLabel>Categoría</InputLabel>
-              <Select
-                value={filters.categoria}
-                onChange={(e) => handleFilterChange('categoria', e.target.value)}
-                label="Categoría"
-              >
-                <MenuItem value="">Todas</MenuItem>
-                {categorias.map((cat) => (
-                  <MenuItem key={cat.id} value={cat.nombre}>
-                    {cat.nombre}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-  
-            <FormControl fullWidth sx={{ mb: 3 }}>
-              <InputLabel>Nivel</InputLabel>
-              <Select
-                value={filters.nivel}
-                onChange={(e) => handleFilterChange('nivel', e.target.value)}
-                label="Nivel"
-              >
-                <MenuItem value="">Todos</MenuItem>
-                {niveles.map((nivel) => (
-                  <MenuItem key={nivel} value={nivel}>
-                    {nivel}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-  
-            <Box sx={{ mb: 3 }}>
-              <Typography gutterBottom>Duración (minutos)</Typography>
-              <Slider
-                value={filters.duracion}
-                onChange={(e, newValue) => handleFilterChange('duracion', newValue)}
-                valueLabelDisplay="auto"
-                valueLabelFormat={formatDuracion}
-                min={0}
-                max={120}
-              />
-              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Typography variant="caption">
-                  {formatDuracion(filters.duracion[0])}
-                </Typography>
-                <Typography variant="caption">
-                  {formatDuracion(filters.duracion[1])}
-                </Typography>
-              </Box>
-            </Box>
-  
-            <FormControl fullWidth sx={{ mb: 3 }}>
-              <InputLabel>Instructor</InputLabel>
-              <Select
-                value={filters.instructor}
-                onChange={(e) => handleFilterChange('instructor', e.target.value)}
-                label="Instructor"
-              >
-                <MenuItem value="">Todos</MenuItem>
-                {instructores.map((instructor) => (
-                  <MenuItem key={instructor} value={instructor}>
-                    {instructor}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-  
-            <Button 
-              fullWidth 
-              variant="contained" 
-              onClick={() => setShowFilters(false)}
-              sx={{ mt: 2 }}
+      {activeFilters.length > 0 && (
+        <Stack direction="row" spacing={1} sx={{ mt: 2, flexWrap: 'wrap', gap: 1 }}>
+          {activeFilters.map((filter) => (
+            <Chip
+              key={filter.name}
+              label={`${filter.name}: ${filter.value}`}
+              onDelete={() => removeFilter(filter.name)}
+              color="primary"
+              variant="outlined"
+            />
+          ))}
+        </Stack>
+      )}
+
+      <FilterDrawer
+        anchor="right"
+        open={showFilters}
+        onClose={() => setShowFilters(false)}
+      >
+        <FilterSection>
+          <FilterTitle variant="h6">Filtros de búsqueda</FilterTitle>
+          
+          <FormControl fullWidth sx={{ mb: 3 }}>
+            <InputLabel>Categoría</InputLabel>
+            <Select
+              value={filters.categoria}
+              onChange={(e) => handleFilterChange('categoria', e.target.value)}
+              label="Categoría"
             >
-              Aplicar Filtros
-            </Button>
-          </FilterSection>
-        </FilterDrawer>
-      </FormMain>
-    )
-  }
-  
-  export default FormSearch 
+              <MenuItem value="">Todas</MenuItem>
+              {categorias.map((cat) => (
+                <MenuItem key={cat.id} value={cat.nombre}>
+                  {cat.nombre}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          <FormControl fullWidth sx={{ mb: 3 }}>
+            <InputLabel>Nivel</InputLabel>
+            <Select
+              value={filters.nivel}
+              onChange={(e) => handleFilterChange('nivel', e.target.value)}
+              label="Nivel"
+            >
+              <MenuItem value="">Todos</MenuItem>
+              {niveles.map((nivel) => (
+                <MenuItem key={nivel} value={nivel}>
+                  {nivel}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          <Box sx={{ mb: 3 }}>
+            <Typography gutterBottom>Duración (minutos)</Typography>
+            <Slider
+              value={filters.duracion}
+              onChange={(e, newValue) => handleFilterChange('duracion', newValue)}
+              valueLabelDisplay="auto"
+              valueLabelFormat={formatDuracion}
+              min={0}
+              max={120}
+            />
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Typography variant="caption">
+                {formatDuracion(filters.duracion[0])}
+              </Typography>
+              <Typography variant="caption">
+                {formatDuracion(filters.duracion[1])}
+              </Typography>
+            </Box>
+          </Box>
+
+          <FormControl fullWidth sx={{ mb: 3 }}>
+            <InputLabel>Instructor</InputLabel>
+            <Select
+              value={filters.instructor}
+              onChange={(e) => handleFilterChange('instructor', e.target.value)}
+              label="Instructor"
+            >
+              <MenuItem value="">Todos</MenuItem>
+              {instructores.map((instructor) => (
+                <MenuItem key={instructor} value={instructor}>
+                  {instructor}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          <Button 
+            fullWidth 
+            variant="contained" 
+            onClick={() => setShowFilters(false)}
+            sx={{ mt: 2 }}
+          >
+            Aplicar Filtros
+          </Button>
+        </FilterSection>
+      </FilterDrawer>
+    </FormMain>
+  )
+}
+
+export default FormSearch
