@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from 'react'
+import React, { useState, useEffect, createContext, useContext } from 'react'
 import { gamificationService } from '../components/gamification-service'
 import { useAuth } from '../Context/useAuth'
 
@@ -107,11 +107,9 @@ export function GamificationProvider({ children }) {
     availableAchievements: gamificationService.getAvailableAchievements()
   }
 
-  return (
-    <GamificationContext.Provider value={value}>
-      {children}
-    </GamificationContext.Provider>
-  )
+  return React.createElement(GamificationContext.Provider, {
+    value: value
+  }, children)
 }
 
 export function useGamification() {
