@@ -16,44 +16,35 @@ const BoxVideos = styled(Box)(({ theme }) => ({
 function VideosPages() {
   const { videos, categorias, data } = useContext(VideosContext)
 
+  const renderVideoCards = (videosToRender) => {
+    return videosToRender.map((video) => {
+      const categoria = categorias.find(cat => cat.nombre === video.categoria)
+      if (categoria) {
+        return (
+          <VideoCard
+            key={video.id}
+            video={video}
+            color={categoria.color}
+          />
+        )
+      }
+      return null
+    }).filter(Boolean) // Elimina los null del mapeo
+  }
+
+  if (videos.length === 0) {
+    return <LinearProgress size={40} />
+  }
+
   return (
     <>
       <FormSearch />
       <BoxVideos>
-        {videos.length === 0 ? (
-          <LinearProgress size={40} />
-        ) : data.length > 0 ? (
-          data.map((video) =>
-            categorias.map(
-              (categoria) =>
-                video.categoria === categoria.nombre && (
-                  <VideoCard
-                    key={video.id}
-                    video={video}
-                    color={categoria.color}
-                  />
-                )
-            )
-          )
-        ) : (
-          <>
-            {videos.map((video) =>
-              categorias.map(
-                (categoria) =>
-                  video.categoria === categoria.nombre && (
-                    <VideoCard
-                      key={video.id}
-                      video={video}
-                      color={categoria.color}
-                    />
-                  )
-              )
-            )}
-          </>
-        )}
+        {renderVideoCards(data.length > 0 ? data : videos)}
       </BoxVideos>
     </>
   )
 }
 
 export default VideosPages
+
