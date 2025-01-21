@@ -13,14 +13,14 @@ import {
   Badge
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorWhite, colorPrimary } from '../components/UI/variablesStyle'
-import Boton from './Button/Boton'
-import DrawerComponent from './Header/DrawerComponent'
-import { useNotifications } from './NotificationSystem/NotificationSystem'
+import { colorWhite, colorPrimary } from '../../../components/UI/variablesStyle'
+import Boton from '../../common/Button/Boton'
+import DrawerComponent from '../../common/Header/DrawerComponent'
+import { useNotifications } from '../../common/NotificationSystem/NotificationSystem'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import BookmarkIcon from '@mui/icons-material/Bookmark'
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary'
-import { animations } from '../components/UI/animations'
+import { animations } from '../../../components/UI/animations'
 
 const HeaderBox = styled(AppBar)(({ theme }) => ({
   background: 'rgba(0, 0, 0, 0.8)',
