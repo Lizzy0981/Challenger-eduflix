@@ -12,15 +12,15 @@ import {
   Tooltip
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { colorPrimary, colorWhite } from '@/components/UI/variablesStyle'
-import { VideosContext } from '@/Context/Context'
-import { useAuth } from '@/Context/useAuth'
-import VideoCard from '@/components/common/Carrusel/VideoCard'
-import LibraryFilters from '@/components/LibraryFilters'
-import LearningStats from '@/components/LearningStats'
-import LoadingComponent from '@/components/LoadingComponent'
-import EmptyState from '@/components/common/EmptyState'
-import { animations } from '@/components/UI/animations'
+import { colorPrimary, colorWhite } from '../../components/UI/variablesStyle'
+import { VideosContext } from '../../Context/Context'
+import { useAuth } from '../../Context/useAuth'
+import VideoCard from '../../components/common/Carrusel/VideoCard'
+import LibraryFilters from '../../components/LibraryFilters'
+import LearningStats from '../../components/LearningStats'
+import LoadingComponent from '../../components/LoadingComponent'
+import EmptyState from '../../components/common/EmptyState'
+import { animations } from '../../components/UI/animations'
 
 // Icons
 import FavoriteIcon from '@mui/icons-material/Favorite'
@@ -34,12 +34,16 @@ const LibraryContainer = styled(Box)(({ theme }) => ({
   padding: '2rem',
   marginTop: '4rem',
   minHeight: '100vh',
-  ...animations.fadeIn
+  '&': {
+    [animations.fadeIn.split(';')[0]]: ''
+  }
 }))
 
 const TabPanel = styled(Box)(({ theme }) => ({
   padding: '2rem 0',
-  ...animations.fadeIn
+  '&': {
+    [animations.fadeIn.split(';')[0]]: ''
+  }
 }))
 
 const ActionButton = styled(Button)(({ theme }) => ({
