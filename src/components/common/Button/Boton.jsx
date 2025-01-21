@@ -10,7 +10,7 @@ import {
   colorRed,
   colorWec,
   colorBlack
-} from '../../UI/variablesStyle'
+} from '../../../components/UI/variablesStyle'
 
 const Btn1 = styled(Button)(({ theme }) => ({
   background: `${colorBlack}`,
