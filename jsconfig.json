@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "baseUrl": "src",
+      "paths": {
+        "@/*": ["*"],
+        "@api/*": ["api/*"],
+        "@components/*": ["components/*"],
+        "@context/*": ["Context/*"],
+        "@utils/*": ["utils/*"]
+      },
+      "jsx": "react",
+      "target": "ES2020",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+  }
