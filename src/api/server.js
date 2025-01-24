@@ -8,7 +8,7 @@ import morgan from 'morgan'
 import { Server as WebSocketServer } from 'socket.io'
 import rateLimit from 'express-rate-limit'
 import path from 'path'
-import mongoose from 'mongoose' // Faltaba esta importación
+import mongoose from 'mongoose' 
 
 // Importaciones propias usando alias
 import config from '@api/config/config'
