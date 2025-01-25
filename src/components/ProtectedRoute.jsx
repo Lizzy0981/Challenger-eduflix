@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom'
-import { useAuth } from '@context/useAuth'
+import { useAuth } from '@Context/useAuth'
 import LoadingComponent from './LoadingComponent'
 
 function ProtectedRoute({ children, requiredRole = null }) {
