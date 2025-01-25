@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { VideosContext } from '@context/Context'
+import { VideosContext } from '@Context/Context'
 import {
   Box,
   TextField,
