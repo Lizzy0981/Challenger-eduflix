@@ -5,7 +5,7 @@
       "@/*": ["*"],
       "@api/*": ["api/*"], 
       "@components/*": ["components/*"],
-      "@context/*": ["context/*"],
+      "@Context/*": ["Context/*"],
       "@services/*": ["services/*"],
       "@utils/*": ["utils/*"],
       "@assets/*": ["assets/*"]
