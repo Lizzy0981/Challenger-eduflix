@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { VideosContext } from '@context/Context'
+import { VideosContext } from '@Context/Context'
 import { Box, Button, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import ReactPlayer from 'react-player/youtube'
