@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { VideosProvider } from '@context/Context'
+import { VideosProvider } from '@Context/Context'
 import { NotificationProvider } from '@components/common/NotificationSystem/NotificationSystem'
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
