@@ -26,7 +26,7 @@ export default defineConfig({
     minify: 'terser',
     chunkSizeWarningLimit: 1600,
     rollupOptions: {
-      external: [],
+      external: ['@Context/Context'],
       output: {
         manualChunks: null,
         format: 'es'
