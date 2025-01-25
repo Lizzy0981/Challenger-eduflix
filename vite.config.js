@@ -25,17 +25,16 @@ export default defineConfig({
     sourcemap: true,
     minify: 'terser',
     chunkSizeWarningLimit: 1600,
+    modulePreload: {
+      polyfill: true
+    },
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html')
-      },
-      external: [],
       output: {
-        format: 'es'
+        inlineDynamicImports: true
       }
     }
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', '@Context/Context']
+    include: ['react', 'react-dom']
   }
 })
