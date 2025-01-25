@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react'
-import { VideosContext } from '@context/Context'
+import { VideosContext } from '@Context/Context'
 import ReactPlayer from 'react-player/youtube'
 import { toast } from 'react-hot-toast'
 import {
