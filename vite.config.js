@@ -26,17 +26,16 @@ export default defineConfig({
     minify: 'terser',
     chunkSizeWarningLimit: 1600,
     rollupOptions: {
-      external: ['@Context/Context'],
-      preserveEntrySignatures: 'strict',
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      },
+      external: [],
       output: {
-        manualChunks: null,
-        format: 'es',
-        preserveModules: true,
-        preserveModulesRoot: 'src'
+        format: 'es'
       }
     }
   },
   optimizeDeps: {
-    include: ['react', 'react-dom']
+    include: ['react', 'react-dom', '@Context/Context']
   }
 })
