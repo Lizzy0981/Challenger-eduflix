@@ -26,9 +26,13 @@ export default defineConfig({
     minify: 'terser',
     chunkSizeWarningLimit: 1600,
     rollupOptions: {
+      external: ['@Context/Context'],
+      preserveEntrySignatures: 'strict',
       output: {
+        manualChunks: null,
+        format: 'es',
         preserveModules: true,
-        format: 'es'
+        preserveModulesRoot: 'src'
       }
     }
   },
