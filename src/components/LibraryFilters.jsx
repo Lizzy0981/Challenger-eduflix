@@ -23,7 +23,7 @@ import SortIcon from '@mui/icons-material/Sort'
 import CloseIcon from '@mui/icons-material/Close'
 import RestartAltIcon from '@mui/icons-material/RestartAlt'
 import { animations } from '@components/UI/animations'
-import { VideosContext } from '@context/Context'
+import { VideosContext } from '@Context/Context'
 
 const FILTER_TYPES = {
   NIVEL: 'nivel',
