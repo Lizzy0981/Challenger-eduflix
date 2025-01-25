@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import SliderComponent from './Slider'
 import { useContext } from 'react'
-import { VideosContext } from '@context/Context'
+import { VideosContext } from '@Context/Context'
 
 const BoxCarrusel = styled(Box)(({ theme }) => ({
   margin: '2rem 3rem',
