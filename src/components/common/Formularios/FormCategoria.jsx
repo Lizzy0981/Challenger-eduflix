@@ -1,6 +1,6 @@
 // FormCategoria.jsx
 import { useContext, useEffect } from 'react'
-import { VideosContext } from '@context/Context'
+import { VideosContext } from '@Context/Context'
 import { getCategoria } from '@/api/dataDB'
 import { TextField, TableRow, TableBody, Paper, Button } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
