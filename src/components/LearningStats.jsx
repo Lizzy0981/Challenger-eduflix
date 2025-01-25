@@ -1,5 +1,5 @@
 import { useContext, useMemo } from 'react'
-import { VideosContext } from '@context/Context'
+import { VideosContext } from '@Context/Context'
 import { Box, Paper, Typography, Grid, CircularProgress, LinearProgress } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { colorPrimary, colorWhite } from '@components/UI/variablesStyle'
