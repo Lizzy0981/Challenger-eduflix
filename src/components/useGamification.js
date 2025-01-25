@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react'
 import { gamificationService } from './gamification-service'
-import { useAuth } from '@context/useAuth'
+import { useAuth } from '@Context/useAuth'
 
 const GamificationContext = createContext(null)
 
