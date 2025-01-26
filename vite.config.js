@@ -15,26 +15,13 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets')
     }
   },
-  server: {
-    port: 3000,
-    open: true,
-    cors: true
-  },
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    minify: 'terser',
-    chunkSizeWarningLimit: 1600,
-    modulePreload: {
-      polyfill: true
-    },
     rollupOptions: {
-      output: {
-        inlineDynamicImports: true
+      external: [],
+      input: {
+        main: path.resolve(__dirname, 'index.html')
       }
     }
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom']
   }
 })
