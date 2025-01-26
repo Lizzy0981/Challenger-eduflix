@@ -16,11 +16,21 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'dist',
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true
+    },
     rollupOptions: {
-      external: [],
-      input: {
-        main: path.resolve(__dirname, 'index.html')
+      output: {
+        manualChunks: {
+          'vendor': [
+            'react',
+            'react-dom',
+            '@mui/material',
+            'react-router-dom'
+          ],
+          'context': ['@Context/Context']
+        }
       }
     }
   }
